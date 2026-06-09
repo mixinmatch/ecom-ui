@@ -1,17 +1,18 @@
 import {Appt, CatalogItem, displayItem, ItemQty, Order} from './Appt';
-const API_CATALOG="localhost:8080"
-const API_INVENTORY="localhost:5053"
-const API_ORDER="localhost:5274"
-const API_APPT="localhost:5062"
+import {environment} from '../../../environment.prod'
+const API_CATALOG=environment.CATALOG_API;
+const API_INVENTORY=environment.INVENTORY_API;
+const API_ORDER=environment.ORDER_API;
+const API_APPT=environment.APPT_API;
 
 export const getCatalogItems = async (): Promise<CatalogItem[]> => {
-    const res = await fetch(`http://${API_CATALOG}/items`);
+    const res = await fetch(`/items`);
     // const res = await fetch('/items');
     return await res.json() as CatalogItem[];
 }
 
 export const getInventory =  async (uuid: string): Promise<ItemQty> => {
-        const res = await fetch(`http://${API_INVENTORY}/item/${uuid}/qty`);
+        const res = await fetch(`/item/${uuid}/qty`);
         // const res = await fetch(`/item/${uuid}/qty`);
 
         return await res.json() as ItemQty;
@@ -39,7 +40,7 @@ export const getInventory =  async (uuid: string): Promise<ItemQty> => {
     }
 
     export const createOrder = async(order: Order) =>{
-        await fetch(`http://${API_ORDER}/order`, {
+        await fetch(`/order`, {
             method: "POST",
               headers: {
                 'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ export const getInventory =  async (uuid: string): Promise<ItemQty> => {
     }
 
     export const createAppt = async (appt: Appt) => {
-        await fetch(`http://${API_APPT}/appt`, {
+        await fetch(`/appt`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
