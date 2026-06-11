@@ -1,18 +1,13 @@
 import {Appt, CatalogItem, displayItem, ItemQty, Order} from './Appt';
-import {environment} from '../../../environment.prod'
-const API_CATALOG=environment.CATALOG_API;
-const API_INVENTORY=environment.INVENTORY_API;
-const API_ORDER=environment.ORDER_API;
-const API_APPT=environment.APPT_API;
 
 export const getCatalogItems = async (): Promise<CatalogItem[]> => {
-    const res = await fetch(`/items`);
+    const res = await fetch(`/api/items`);
     // const res = await fetch('/items');
     return await res.json() as CatalogItem[];
 }
 
 export const getInventory =  async (uuid: string): Promise<ItemQty> => {
-        const res = await fetch(`/item/${uuid}/qty`);
+        const res = await fetch(`/api/item/${uuid}/qty`);
         // const res = await fetch(`/item/${uuid}/qty`);
 
         return await res.json() as ItemQty;

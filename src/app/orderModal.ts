@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { createOrder } from './api/api';
 import { Order } from './api/Appt';
 import { ToastService } from './services/toastservice';
+import { Api } from './api/Api2';
 
 @Component({
   selector: 'order-modal',
@@ -115,6 +116,8 @@ export class OrderModal {
   protected cc = "";
   protected adress = "";
   private toast = inject(ToastService);
+  private api2_0 = inject(Api);
+  
 
 
 
@@ -126,7 +129,7 @@ export class OrderModal {
         cost: 9.99,
         clientEmail: this.email
     }
-    await createOrder(order);
+    await this.api2_0.createOrder(order);
     this.toast.show('Order Created', 'success');
     this.closeModal()
 

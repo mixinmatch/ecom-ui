@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastService } from './services/toastservice';
 import { Appt } from './api/Appt';
 import { createAppt } from './api/api';
+import { Api } from './api/Api2';
 @Component({
   selector: 'appt-order-modal',
   template: `
@@ -98,6 +99,7 @@ export class ApptOrderModal {
   itemName = input<string>();
   isModalOpen = model(false);
   private toast = inject(ToastService);
+  private api2_0 = inject(Api);
 
   protected email = "";
   protected name = "";
@@ -113,7 +115,7 @@ export class ApptOrderModal {
         qty: 1,
       }
     }
-    await createAppt(appt);
+    await this.api2_0.createAppt(appt);
     this.toast.show('Appointment Created', 'success');
     this.closeModal()
   }

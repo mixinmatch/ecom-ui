@@ -4,6 +4,7 @@ import { getItems } from './api/api';
 import { OrderModal } from './orderModal';
 import { ApptOrderModal } from './apptOrderModal';
 import { ToasterComponent } from './services/toast';
+import { Api } from './api/Api2';
 
 @Component({
   selector: 'rows',
@@ -159,6 +160,8 @@ export class Rows {
   showOrderModal = signal(false);
   showApptOrderModal = signal(false);
 
+  private api2_0 = inject(Api);
+
   itemId = signal("")
   itemName = signal("")
 
@@ -177,7 +180,7 @@ export class Rows {
   }
 
   async ngOnInit() {
-    const items = await getItems();
+    const items = await this.api2_0.getItems();
     this.rows.set([items]);
   }
 }
