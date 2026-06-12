@@ -33,7 +33,8 @@ export interface ItemQty {
 export interface displayItem {
     itemID: string,
     itemName: string,
-    merchant: string
+    photolink: string,
+    merchant: string,
     isLiquidated: boolean,
     qty: number
 };

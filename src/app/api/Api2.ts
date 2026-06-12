@@ -27,6 +27,7 @@ export class Api {
                   itemID: c.id,
                   itemName: c.name,
                   merchant: c.merchant,
+                  photolink: c.photoLink,
                   isLiquidated: c.isLiquidationSale,
                   //set later
                   qty: -1
