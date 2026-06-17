@@ -19,6 +19,7 @@ import { ItemCard } from '../ItemCard';
     </thead>
     <tbody class="scroll-container">
     <div class="grid grid-cols-5 grid-rows-5 gap-12">
+      @defer {
         @for (subArray of rows(); track subArray) {
             @for (item of subArray; track item) {
               <item-card [item]="item" />
@@ -26,6 +27,9 @@ import { ItemCard } from '../ItemCard';
         } @empty {
           <span> <strong>no items </strong> </span> 
         }
+      } @placeholder {
+        <p>Items loading...</p>
+      }
       </div>
     </tbody>
   </table>
