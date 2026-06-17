@@ -27,7 +27,7 @@ import { ItemCard } from '../ItemCard';
         } @empty {
           <span> <strong>no items </strong> </span> 
         }
-      } @placeholder (minimum 3000ms) {
+      } @placeholder (minimum 7000ms) {
         <p>Items loading...</p>
       }
       </div>
