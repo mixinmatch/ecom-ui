@@ -8,13 +8,13 @@ import {Appt, CatalogItem, displayItem, ItemQty, Order} from './Appt';
 export class Api {
 
   getCatalogItems = async (): Promise<CatalogItem[]> => {
-      const res = await fetch(`/api/items`);
+      const res = await fetch(`/catalog/api/items`);
       // const res = await fetch('/items');
       return await res.json() as CatalogItem[];
   }
   
   getInventory =  async (uuid: string): Promise<ItemQty> => {
-          const res = await fetch(`/api/item/${uuid}/qty`);
+          const res = await fetch(`/inventory/api/item/${uuid}/qty`);
           // const res = await fetch(`/item/${uuid}/qty`);
   
           return await res.json() as ItemQty;
@@ -43,7 +43,7 @@ export class Api {
       }
   
     createOrder = async(order: Order) =>{
-          await fetch(`/api/order`, {
+          await fetch(`/order/api/order`, {
               method: "POST",
                 headers: {
                   'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export class Api {
       }
   
       createAppt = async (appt: Appt) => {
-          await fetch(`/api/appt`, {
+          await fetch(`/appointment/api/appt`, {
               method: "POST",
               headers: {
                   'Content-Type': 'application/json',
