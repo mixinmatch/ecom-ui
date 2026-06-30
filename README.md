@@ -2,7 +2,7 @@
 
 microservices:  
 https://github.com/mixinmatch/ecom-catalog  
-https://github.com/mixinmatch/ecom_inventory 
+https://github.com/mixinmatch/ecom_inventory   
 https://github.com/mixinmatch/ecom-appt  
 https://github.com/mixinmatch/ecom-order  
 
